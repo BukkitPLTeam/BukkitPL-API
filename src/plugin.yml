@@ -1,1 +1,1 @@
-name: 'BukkitPL'main: pl.bukkit.bukkitpl.BukkitPLauthors: [BukkitSmerf, ElDzi]version: 0.1
+name: 'BukkitPL'main: pl.bukkit.bukkitpl.BukkitPLauthors: [BukkitSmerf, ElDzi]version: 0.1Permissions:  BukkitPL.default:    default: true
