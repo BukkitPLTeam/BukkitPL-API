@@ -2,6 +2,8 @@ package pl.bukkit.bukkitpl;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import pl.bukkit.bukkitpl.utils.UMsg;
+
 /**
  * Main class
  * 
@@ -11,16 +13,28 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class BukkitPL extends JavaPlugin
 {
+	private static BukkitPL instance;
+	private UserManagerHandler users;
 
+	public static BukkitPL getInstance()
+	{
+		return BukkitPL.instance;
+	}
 
+	@Override
+	public void onEnable()
+	{
+		this.initManagers();
+		UMsg.log("API aktywowane");
+	}
 
+	private void initManagers()
+	{
+		this.users = new UserManagerHandler();
+	}
 
-  public void onEnable(){
-     System.out.println("Uruchamianie BukkitPL_API)");
-  }
-
-  public void onDisable(){
-    System.out.println("Wylaczanie BukkitPL_API)");
-  }
-
+	public UserManagerHandler getUsersManager()
+	{
+		return this.users;
+	}
 }
