@@ -4,26 +4,35 @@ import org.apache.commons.lang.Validate;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 
+import pl.bukkit.bukkitpl.api.BukkitPLAPI;
 import pl.bukkit.bukkitpl.api.Warp;
 
+/**
+ * Klasa do zarz¹dzania pojedynczym warpem, realizacja {@link Warp}
+ * 
+ * @author BukkitSmerf
+ * 
+ */
 public class WarpHandler implements Warp
 {
 	private final String name;
 	private Location loc;
 	private String permission, desc;
 
-	public WarpHandler(final String name, final Location loc, final String permission)
+	public WarpHandler(final String name, final Location loc, final String permission, final String desc)
 	{
-		Validate.noNullElements(new Object[] { name, loc, permission }, "Arguments can't be null!");
+		Validate.noNullElements(new Object[] { name, loc, permission, desc }, "Arguments can't be null!");
 		this.name = name;
 		this.loc = loc;
 		this.permission = permission;
+		this.desc = desc;
 	}
 
 	public WarpHandler(final String name, final Location loc)
 	{
-		this(name, loc, "BukkitPL.default");
+		this(name, loc, BukkitPLAPI.PERM_DEFAULT, "");
 	}
 
 	@Override
@@ -80,4 +89,15 @@ public class WarpHandler implements Warp
 		this.desc = desc;
 	}
 
+	@Override
+	public boolean hasPermission(final User user)
+	{
+		return user.hasPermission(this.permission);
+	}
+
+	@Override
+	public boolean hasPermission(final Player player)
+	{
+		return player.hasPermission(this.permission);
+	}
 }

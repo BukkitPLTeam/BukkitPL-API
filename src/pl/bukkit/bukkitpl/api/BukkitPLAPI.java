@@ -12,6 +12,7 @@ import pl.bukkit.bukkitpl.WarpManagerHandler;
 
 public class BukkitPLAPI
 {
+	public static final String PERM_DEFAULT = "BukkitPL.default";
 	private static boolean init = false;
 	private static UserManager user;
 	private static Map<String, PluginManager> plugins = new HashMap<>();

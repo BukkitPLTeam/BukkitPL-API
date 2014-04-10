@@ -23,12 +23,14 @@ public interface WarpManager
 	 * 
 	 * @param warp
 	 *            Warp do dodania
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
 	 */
-	public void addWarp(final Warp warp);
+	public void addWarp(final Warp warp) throws NullPointerException;
 
 	/**
 	 * Tworzy i dodaje (do listy/managera) nowego warpa, mo¿esz ustawic wymagane
-	 * permissions które
+	 * uprawnienie które
 	 * zostanie uwzglêdnione podczas uzycia
 	 * {@link WarpManager#getWarpListFor(User)} itp.<br>
 	 * By dodaæ permissions u¿yj
@@ -39,12 +41,14 @@ public interface WarpManager
 	 * @param loc
 	 *            lokalizacja warpa
 	 * @return stworzony warp
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
 	 */
-	public Warp createAndAddWarp(final String name, final Location loc);
+	public Warp createAndAddWarp(final String name, final Location loc) throws NullPointerException;
 
 	/**
 	 * Tworzy i dodaje (do listy/managera) nowego warpa, mo¿esz ustawic wymagane
-	 * permissions które
+	 * uprawnienie które
 	 * zostanie uwzglêdnione podczas uzycia
 	 * {@link WarpManager#getWarpListFor(User)} itp.
 	 * 
@@ -54,12 +58,34 @@ public interface WarpManager
 	 *            lokalizacja warpa.
 	 * @param permission
 	 *            Uprawnienie warpa.
-	 * @return stworzony warp
+	 * @return stworzony warp.
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
 	 */
-	public Warp createAndAddWarp(final String name, final Location loc, final String permission);
+	public Warp createAndAddWarp(final String name, final Location loc, final String permission) throws NullPointerException;
 
 	/**
-	 * Tworzy nowego warpa, mo¿esz ustawic wymagane permissions. (Nie jest ono w
+	 * Tworzy i dodaje (do listy/managera) nowego warpa, mo¿esz ustawic wymagane
+	 * uprawnienie które
+	 * zostanie uwzglêdnione podczas uzycia
+	 * {@link WarpManager#getWarpListFor(User)} itp.
+	 * 
+	 * @param name
+	 *            nazwa warpa.
+	 * @param loc
+	 *            lokalizacja warpa.
+	 * @param permission
+	 *            Uprawnienie warpa.
+	 * @param desc
+	 *            opis warpa.
+	 * @return stworzony warp.
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
+	 */
+	public Warp createAndAddWarp(final String name, final Location loc, final String permission, final String desc) throws NullPointerException;
+
+	/**
+	 * Tworzy nowego warpa, mo¿esz ustawic wymagane uprawnienie. (Nie jest ono w
 	 * ¿aden sposób sprawdzane, to tylko dla ciebie)<br>
 	 * {@link WarpManager#createWarp(String, Location, String)}
 	 * 
@@ -67,12 +93,14 @@ public interface WarpManager
 	 *            nazwa warpa
 	 * @param loc
 	 *            lokalizacja warpa
-	 * @return stworzony warp
+	 * @return stworzony warp.
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
 	 */
-	public Warp createWarp(final String name, final Location loc);
+	public Warp createWarp(final String name, final Location loc) throws NullPointerException;
 
 	/**
-	 * Tworzy nowego warpa, mo¿esz ustawic wymagane permissions. (Nie jest ono w
+	 * Tworzy nowego warpa, mo¿esz ustawic wymagane uprawnienie. (Nie jest ono w
 	 * ¿aden sposób sprawdzane, to tylko dla ciebie)
 	 * 
 	 * @param name
@@ -81,16 +109,39 @@ public interface WarpManager
 	 *            lokalizacja warpa.
 	 * @param permission
 	 *            Uprawnienie warpa.
-	 * @return stworzony warp
+	 * @return stworzony warp.
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
 	 */
-	public Warp createWarp(final String name, final Location loc, final String permission);
+	public Warp createWarp(final String name, final Location loc, final String permission) throws NullPointerException;
+
+	/**
+	 * Tworzy nowego warpa, mo¿esz ustawic wymagane uprawnienie. (Nie jest ono w
+	 * ¿aden sposób sprawdzane, to tylko dla ciebie)
+	 * 
+	 * @param name
+	 *            nazwa warpa.
+	 * @param loc
+	 *            lokalizacja warpa.
+	 * @param permission
+	 *            Uprawnienie warpa.
+	 * @param desc
+	 *            opis warpa.
+	 * @return stworzony warp.
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
+	 */
+	public Warp createWarp(final String name, final Location loc, final String permission, final String desc) throws NullPointerException;
 
 	/**
 	 * Usuwa wybranego warpa.
 	 * 
 	 * @param warp
+	 *            .
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
 	 */
-	public void removeWarp(final Warp warp);
+	public void removeWarp(final Warp warp) throws NullPointerException;
 
 	/**
 	 * Usuwa warpa o wybranej nazwie.
@@ -98,23 +149,27 @@ public interface WarpManager
 	 * @param name
 	 * @return usuniêty warp lub null jeœli nie by³o takiego warpa.
 	 */
-	public Warp removeWarp(final String name);
+	public Warp removeWarp(final String name) throws NullPointerException;
 
 	/**
 	 * Pobiera warpa z listy, mo¿e zwróciæ null (jeœli nie ma takiego warpa).
 	 * 
 	 * @param name
-	 * @return warp lub null
+	 * @return warp lub null.
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
 	 */
-	public Warp getWarp(final String name);
+	public Warp getWarp(final String name) throws NullPointerException;
 
 	/**
 	 * Sprawdza czy warp o podanej nazwie znajduje siê na liœcie.
 	 * 
 	 * @param name
 	 * @return true jeœli siê znajduje.
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
 	 */
-	public boolean isWarp(final String name);
+	public boolean isWarp(final String name) throws NullPointerException;
 
 	/**
 	 * @return Zwraca listê wszystkich nazw warpów.
@@ -127,24 +182,28 @@ public interface WarpManager
 	public Collection<Warp> getWarpList();
 
 	/**
-	 * Zwraca listê wszystkich nazw warpów do których permissions ma wybrany
+	 * Zwraca listê wszystkich nazw warpów do których uprawnienie ma wybrany
 	 * gracz.
 	 * 
 	 * @param user
 	 *            gracz
 	 * @return lista nazw warpów
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
 	 */
-	public Set<String> getWarpNameListFor(final User user);
+	public Set<String> getWarpNameListFor(final User user) throws NullPointerException;
 
 	/**
-	 * Zwraca listê wszystkich warpów do których permissions ma wybrany
+	 * Zwraca listê wszystkich warpów do których uprawnienie ma wybrany
 	 * gracz.
 	 * 
 	 * @param user
 	 *            gracz
 	 * @return lista warpów
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
 	 */
-	public Collection<Warp> getWarpListFor(final User user);
+	public Collection<Warp> getWarpListFor(final User user) throws NullPointerException;
 
 	/**
 	 * @return Zwraca pe³n¹ mapê warpów - zmiany dokonane na tej mapie obejm¹
@@ -152,9 +211,49 @@ public interface WarpManager
 	 */
 	public Map<String, Warp> getWarps();
 
-	//TODO reszta potem, nie mam czasu :D
+	/**
+	 * Zwraca listê nazw warpów z wybranym wymaganym uprawnieniem.
+	 * 
+	 * @param permission
+	 *            wymagane uprawnienie.
+	 * @return lista nazw warpów z tym uprawnieniem.
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
+	 */
+	public Set<String> getWarpNameListFor(final String permission) throws NullPointerException;
 
-	public Set<String> getWarpNameListFor(final String permission);
+	/**
+	 * Zwraca listê warpów z wybranym wymaganym uprawnieniem.
+	 * 
+	 * @param permission
+	 *            wymagane uprawnienie.
+	 * @return lista warpów z tym uprawnieniem.
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
+	 */
+	public Collection<Warp> getWarpListFor(final String permission) throws NullPointerException;
 
-	public Collection<Warp> getWarpListFor(final String permission);
+	/**
+	 * Zmienia nazwê wybranego warpa.
+	 * 
+	 * @param warp
+	 *            warp którego nazwê chcemy zmieniæ.
+	 * @param newName
+	 *            nowa nazwa warpa.
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
+	 */
+	public void renameWarp(final Warp warp, final String newName) throws NullPointerException;
+
+	/**
+	 * Zmienia nazwê wybranego warpa.
+	 * 
+	 * @param warp
+	 *            nazwa warpa którego nazwê chcemy zmieniæ.
+	 * @param newName
+	 *            nowa nazwa warpa.
+	 * @throws NullPointerException
+	 *             Jeœli jakiœ z argumentów jest null.
+	 */
+	public void renameWarp(final String warp, final String newName) throws NullPointerException;
 }
